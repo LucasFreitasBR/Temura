@@ -30,6 +30,7 @@
     "esbuild-wasm": "^0.28.2",
     "typescript": "6.0.3",
     "wrangler": "^4.0.0"
+    "packageManager": "pnpm@10.17.1"
   },
   "type": "module"
 }
