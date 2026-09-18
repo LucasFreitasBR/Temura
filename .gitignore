@@ -1,0 +1,11 @@
+node_modules/
+.next/
+out/
+dist/
+.wrangler/
+.sites-runtime/
+.openai/
+*.tsbuildinfo
+.env*
+!.env.example
+.dev.vars*
