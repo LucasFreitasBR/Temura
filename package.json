@@ -2,9 +2,12 @@
   "name": "temura",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "pnpm@10.0.0",
+  "type": "module",
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1",
     "build": "next build --webpack && node scripts/build-worker.mjs",
+    "build:site": "next build --webpack",
     "typecheck": "tsc --noEmit",
     "db:generate": "drizzle-kit generate",
     "preview": "wrangler dev",
@@ -22,14 +25,13 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250901.0",
-    "@types/node": "22.20.3",
+    "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "drizzle-kit": "^0.31.0",
     "esbuild": "^0.25.0",
     "esbuild-wasm": "^0.28.2",
-    "typescript": "6.0.3",
+    "typescript": "^5.9.0",
     "wrangler": "^4.0.0"
-  },
-  "type": "module"
+  }
 }
