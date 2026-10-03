@@ -24,12 +24,13 @@ const services = [
   {
     number: "01",
     title: "Sites &\nlanding pages.",
-    tag: "DESIGN QUE CONVERTE",
-    text: "A primeira impressão abre portas. Criamos experiências digitais que traduzem sua marca e tornam o próximo passo do seu cliente simples.",
+    tag: "DESIGN QUE VENDE",
+    text: "Seu site não existe só para apresentar sua empresa. Ele precisa trabalhar por ela: transformar visitas em interesse, interesse em oportunidades e oportunidades em negócios.",
     items: [
-      "Design sob medida",
+      "Estratégia focada em vendas",
+      "Design orientado à negócios",
+      "Conversão & performance",
       "Experiência mobile",
-      "Desenvolvimento & performance",
     ],
     word: "PRESENÇA",
     kind: "web",
@@ -311,9 +312,9 @@ export default function Home() {
               key={i}
               style={{ color: "inherit", fontSize: "inherit", margin: 0 }}
             >
-              IDEIAS EM MOVIMENTO <span>✳</span>
-              MARCAS EM EVIDÊNCIA{" "} <span>✳</span>{" "}
-              RECONHECIMENTO{" "} <span>✳</span>{" "}
+              ATENÇÃO QUE CONVERTE <span>✳</span>
+              MARCAS QUE SÃO ESCOLHIDAS{" "} <span>✳</span>{" "}
+              NEGÓCIOS QUE CRESCEM{" "} <span>✳</span>{" "}
             </span>
           ))}
         </div>
