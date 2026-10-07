@@ -23,14 +23,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const services = [
   {
     number: "01",
-    title: "Sites &\nlanding pages.",
-    tag: "DESIGN QUE VENDE",
-    text: "Seu site não existe só para apresentar sua empresa. Ele precisa trabalhar por ela: transformar visitas em interesse, interesse em oportunidades e oportunidades em negócios.",
+    title: "Sites &\nLanding pages.",
+    tag: "PARECER PROFISSIONAL É O MÍNIMO.",
+    text: "Seu Site não existe só para apresentar sua empresa.\nEle precisa trabalhar por ela: Transformar visitas em Interesse, Interesse em Oportunidades e Oportunidades em Negócios.",
     items: [
-      "Estratégia focada em vendas",
-      "Design orientado à negócios",
-      "Conversão & performance",
-      "Experiência mobile",
+      "Estratégia focada em Vendas",
+      "Design Orientado à Negócios",
+      "Conversão & Performance",
+      "Experiência Mobile",
     ],
     word: "PRESENÇA",
     kind: "web",
@@ -361,7 +361,7 @@ export default function Home() {
             <br />à <em>ação.</em>
           </h2>
           <p>
-            O encontro entre o que sua marca é<br />e o que ela pode se tornar.
+            Criamos os pontos de contato<br />que transformam a visibilidade em escolha.
           </p>
         </div>
         <div className="service-stack">
@@ -380,7 +380,12 @@ export default function Home() {
                     </span>
                   ))}
                 </h3>
-                <p>{s.text}</p>
+                <p>{s.text.split("\n").map((line, i) => (
+                    <span key={i}>
+                      {line}
+                      <br />
+                    </span>
+                  ))}</p>
                 <ul>
                   {s.items.map((item) => (
                     <li key={item}>{item}</li>
@@ -406,17 +411,17 @@ export default function Home() {
                         <i />
                         <i />
                         <i />
-                        <span>UMA NOVA PERSPECTIVA</span>
+                        <span>PRESENÇA QUE GERA RESULTADO</span>
                       </div>
                       <div className="browser-content">
-                        <span className="mini-brand">sua marca®</span>
+                        <span className="mini-brand">temura®</span>
                         <strong>
                           FEITO PARA
                           <br />
-                          <em>IR ALÉM.</em>
+                          <em>GERAR NEGÓCIOS.</em>
                         </strong>
                         <div className="mini-line" />
-                        <span>DESIGN COM INTENÇÃO. ↗</span>
+                        <span>DESIGN COM ESTRATÉGIA. ↗</span>
                       </div>
                     </div>
                   ) : s.kind === "ads" ? (
