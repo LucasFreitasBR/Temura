@@ -313,16 +313,16 @@ export default function Home() {
               style={{ color: "inherit", fontSize: "inherit", margin: 0 }}
             >
               ATENÇÃO QUE CONVERTE <span>✳</span>
-              MARCAS QUE SÃO ESCOLHIDAS{" "} <span>✳</span>{" "}
-              NEGÓCIOS QUE CRESCEM{" "} <span>✳</span>{" "}
+              MARCAS QUE SÃO ESCOLHIDAS <span>✳</span> NEGÓCIOS QUE CRESCEM{" "}
+              <span>✳</span>{" "}
             </span>
           ))}
         </div>
       </div>
       <section id="sobre" className="about section-pad">
         <div className="section-label">
-          <span>01 / O ESTÚDIO</span>
-          <span>INDEPENDENTE POR NATUREZA.</span>
+          <span>01 / A TEMURA</span>
+          <span>CRESCIMENTO EXIGE MOVIMENTO.</span>
         </div>
         <div className="about-grid">
           <div className="about-mark" aria-hidden="true">
@@ -330,23 +330,23 @@ export default function Home() {
           </div>
           <div>
             <h2 className="reveal">
-              Boas marcas
+              Ajudamos sua empresa
+              <br />a encontrar os movimentos
               <br />
-              não ficam <em>paradas.</em>
-              <br />A gente também não.
+              que geram <em>mais negócios.</em>
             </h2>
             <div className="about-copy reveal">
               <p>
-                Somos a Temura. Um estúdio que nasce para aproximar marcas e
-                pessoas por meio de experiências digitais, estratégia e
-                conteúdo.
+                Somos a Temura. Combinamos marketing, <br />tecnologia e criatividade para transformar<br />presença em oportunidade e atenção em negócio.
               </p>
               <p>
-                Do primeiro clique à próxima conversa, cada detalhe tem um
-                propósito: fazer seu negócio se apresentar melhor e chegar mais
-                longe.
+                Para nós, um site, uma campanha ou um conteúdo só fazem sentido
+                quando ajudam sua empresa a avançar.
               </p>
             </div>
+          <p className="about-conclusao">
+            NÃO BASTA PARECER PROFISSIONAL. SUA PRESENÇA DIGITAL PRECISA GERAR NEGÓCIO.
+          </p>
           </div>
         </div>
       </section>
