@@ -24,26 +24,28 @@ const services = [
   {
     number: "01",
     title: "Sites &\nLanding pages.",
-    tag: "PARECER PROFISSIONAL É O MÍNIMO.",
+    tag: "DESIGN QUE VENDE",
     text: "Seu Site não existe só para apresentar sua empresa.\nEle precisa trabalhar por ela: Transformar visitas em Interesse, Interesse em Oportunidades e Oportunidades em Negócios.",
+    punchline: "Site é investimento. Todo investimento precisa gerar retorno.",
     items: [
       "Estratégia focada em Vendas",
       "Design Orientado à Negócios",
       "Conversão & Performance",
       "Experiência Mobile",
     ],
-    word: "PRESENÇA",
+    word: "PERFORMANCE",
     kind: "web",
   },
   {
     number: "02",
     title: "Tráfego\npago.",
-    tag: "ESTRATÉGIA QUE CONECTA",
-    text: "Sua marca na frente de quem importa. Planejamos campanhas, acompanhamos os dados e ajustamos a rota para atrair oportunidades reais.",
+    tag: "TRÁFEGO QUE GERA OPORTUNIDADES",
+    text: "O objetivo não é comprar cliques. É gerar oportunidades. Planejamos, mensuramos e otimizamos campanhas para colocar sua empresa diante das Pessoas Certas — com cada decisão orientada por Dados e Resultados.",
+    punchline: "Mídia é investimento. Todo investimento precisa ter propósito de retorno.",
     items: [
-      "Estratégia de campanhas",
       "Google & Meta Ads",
-      "Análise & otimização",
+      "Estratégia & segmentação",
+      "Dados & otimização",
     ],
     word: "ALCANCE",
     kind: "ads",
@@ -386,6 +388,7 @@ export default function Home() {
                       <br />
                     </span>
                   ))}</p>
+                  <span className="service-punch">{s.punchline}</span>
                 <ul>
                   {s.items.map((item) => (
                     <li key={item}>{item}</li>
@@ -426,7 +429,7 @@ export default function Home() {
                     </div>
                   ) : s.kind === "ads" ? (
                     <div className="ads-design">
-                      <span>O PRÓXIMO NÍVEL</span>
+                      <span>MÍDIA COM DIREÇÃO</span>
                       <div className="chart-art">
                         <div />
                         <div />
@@ -435,9 +438,9 @@ export default function Home() {
                         <div />
                       </div>
                       <strong>
-                        Mais perto.
+                        Alcance é o meio
                         <br />
-                        Mais longe.
+                        Resultado é o destino
                       </strong>
                       <ArrowUpRight size={100} strokeWidth={1} />
                     </div>
@@ -469,7 +472,7 @@ export default function Home() {
                 </div>
                 <div className="visual-caption">
                   <span>{s.word}</span>
-                  <span>ESTÚDIO TEMURA / {s.number}</span>
+                  <span>TEMURA / {s.number}</span>
                 </div>
               </div>
             </article>
@@ -482,14 +485,14 @@ export default function Home() {
         </div>
         <div className="statement-inner">
           <span>
-            MENOS DO MESMO?
+            MAIS DO MESMO?
             <br />
             NÃO É COM A GENTE.
           </span>
           <h2>
-            Criatividade
+            Boas ideias precisam
             <br />
-            com <em>direção.</em>
+            levar a algum lugar.
           </h2>
           <a href="#contato" aria-label="Conversar sobre meu projeto">
             <ArrowUpRight strokeWidth={1} />
