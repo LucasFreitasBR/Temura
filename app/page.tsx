@@ -312,9 +312,9 @@ export default function Home() {
               key={i}
               style={{ color: "inherit", fontSize: "inherit", margin: 0 }}
             >
-              ATENÇÃO QUE CONVERTE <span>✳</span>
-              MARCAS QUE SÃO ESCOLHIDAS <span>✳</span> NEGÓCIOS QUE CRESCEM{" "}
-              <span>✳</span>{" "}
+              ATENÇÃO QUE CONVERTE <span>✳︎</span>
+              MARCAS QUE SÃO ESCOLHIDAS <span>✳︎</span> NEGÓCIOS QUE CRESCEM{" "}
+              <span>✳︎</span>{" "}
             </span>
           ))}
         </div>
@@ -326,7 +326,7 @@ export default function Home() {
         </div>
         <div className="about-grid">
           <div className="about-mark" aria-hidden="true">
-            t<span>↗</span>
+            t<span>↗︎</span>
           </div>
           <div>
             <h2 className="reveal">
@@ -421,7 +421,7 @@ export default function Home() {
                           <em>GERAR NEGÓCIOS.</em>
                         </strong>
                         <div className="mini-line" />
-                        <span>DESIGN COM ESTRATÉGIA. ↗</span>
+                        <span>DESIGN COM ESTRATÉGIA. ↗︎</span>
                       </div>
                     </div>
                   ) : s.kind === "ads" ? (
