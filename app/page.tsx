@@ -1,5 +1,11 @@
 "use client";
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type FormEvent,
+  useLayoutEffect,
+} from "react";
 import {
   ArrowUpRight,
   ArrowDown,
@@ -17,26 +23,29 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const services = [
   {
     number: "01",
-    title: "Sites &\nlanding pages.",
-    tag: "DESIGN QUE CONVERTE",
-    text: "A primeira impressão abre portas. Criamos experiências digitais que traduzem sua marca e tornam o próximo passo do seu cliente simples.",
+    title: "Sites &\nLanding pages.",
+    tag: "DESIGN QUE VENDE",
+    text: "Seu Site não existe só para apresentar sua empresa.\nEle precisa trabalhar por ela: Transformar visitas em Interesse, Interesse em Oportunidades e Oportunidades em Negócios.",
+    punchline: "Site é investimento. Todo investimento precisa gerar retorno.",
     items: [
-      "Design sob medida",
-      "Experiência mobile",
-      "Desenvolvimento & performance",
+      "Estratégia focada em Vendas",
+      "Design Orientado à Negócios",
+      "Conversão & Performance",
+      "Experiência Mobile",
     ],
-    word: "PRESENÇA",
+    word: "PERFORMANCE",
     kind: "web",
   },
   {
     number: "02",
     title: "Tráfego\npago.",
-    tag: "ESTRATÉGIA QUE CONECTA",
-    text: "Sua marca na frente de quem importa. Planejamos campanhas, acompanhamos os dados e ajustamos a rota para atrair oportunidades reais.",
+    tag: "TRÁFEGO QUE GERA OPORTUNIDADES",
+    text: "O objetivo não é comprar cliques. É gerar oportunidades. Planejamos, mensuramos e otimizamos campanhas para colocar sua empresa diante das Pessoas Certas — com cada decisão orientada por Dados e Resultados.",
+    punchline: "Mídia é investimento. Todo investimento precisa ter propósito de retorno.",
     items: [
-      "Estratégia de campanhas",
       "Google & Meta Ads",
-      "Análise & otimização",
+      "Estratégia & segmentação",
+      "Dados & otimização",
     ],
     word: "ALCANCE",
     kind: "ads",
@@ -75,6 +84,9 @@ const questions = [
 ];
 
 export default function Home() {
+  const marqueeWrapRef = useRef<HTMLDivElement>(null);
+  const marqueeTrackRef = useRef<HTMLDivElement>(null);
+  const [marqueeReps, setMarqueeReps] = useState(6); // valor inicial seguro pro primeiro paint
   const root = useRef<HTMLElement>(null);
   const started = useRef(Date.now());
   const key = useRef("");
@@ -115,7 +127,7 @@ export default function Home() {
           },
         });
         gsap.to(".marquee-track", {
-          xPercent: -18,
+          xPercent: -5,
           ease: "none",
           scrollTrigger: {
             trigger: ".marquee",
@@ -124,35 +136,31 @@ export default function Home() {
             scrub: 1,
           },
         });
-        gsap.utils
-          .toArray<HTMLElement>(".reveal")
-          .forEach((el) =>
-            gsap.from(el, {
-              y: 38,
-              opacity: 0,
-              duration: 0.9,
-              ease: "power2.out",
-              scrollTrigger: { trigger: el, start: "top 93%", once: true },
-            }),
-          );
-        gsap.utils
-          .toArray<HTMLElement>(".service-art")
-          .forEach((el) =>
-            gsap.fromTo(
-              el,
-              { yPercent: -8 },
-              {
-                yPercent: 8,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: el.closest(".service-card"),
-                  start: "top bottom",
-                  end: "bottom top",
-                  scrub: 1,
-                },
+        gsap.utils.toArray<HTMLElement>(".reveal").forEach((el) =>
+          gsap.from(el, {
+            y: 38,
+            opacity: 0,
+            duration: 0.9,
+            ease: "power2.out",
+            scrollTrigger: { trigger: el, start: "top 93%", once: true },
+          }),
+        );
+        gsap.utils.toArray<HTMLElement>(".service-art").forEach((el) =>
+          gsap.fromTo(
+            el,
+            { yPercent: -8 },
+            {
+              yPercent: 8,
+              ease: "none",
+              scrollTrigger: {
+                trigger: el.closest(".service-card"),
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1,
               },
-            ),
-          );
+            },
+          ),
+        );
         gsap.to(".statement-word", {
           xPercent: -12,
           ease: "none",
@@ -298,40 +306,49 @@ export default function Home() {
           <span className="hero-index">01 — 05</span>
         </div>
       </section>
-      <div className="marquee" aria-hidden="true">
-        <div className="marquee-track">
-          IDEIAS EM MOVIMENTO <span>✳</span> MARCAS EM EVIDÊNCIA <span>✳</span>{" "}
-          IDEIAS EM MOVIMENTO <span>✳</span> MARCAS EM EVIDÊNCIA <span>✳</span>
+      <div className="marquee" aria-hidden="true" ref={marqueeWrapRef}>
+        <div className="marquee-track" ref={marqueeTrackRef}>
+          {Array.from({ length: marqueeReps }).map((_, i) => (
+            <span
+              className="marquee-unit"
+              key={i}
+              style={{ color: "inherit", fontSize: "inherit", margin: 0 }}
+            >
+              ATENÇÃO QUE CONVERTE <span>✳︎</span>
+              MARCAS QUE SÃO ESCOLHIDAS <span>✳︎</span> NEGÓCIOS QUE CRESCEM{" "}
+              <span>✳︎</span>{" "}
+            </span>
+          ))}
         </div>
       </div>
       <section id="sobre" className="about section-pad">
         <div className="section-label">
-          <span>01 / O ESTÚDIO</span>
-          <span>INDEPENDENTE POR NATUREZA.</span>
+          <span>01 / A TEMURA</span>
+          <span>CRESCIMENTO EXIGE MOVIMENTO.</span>
         </div>
         <div className="about-grid">
           <div className="about-mark" aria-hidden="true">
-            t<span>↗</span>
+            t<span>↗︎</span>
           </div>
           <div>
             <h2 className="reveal">
-              Boas marcas
+              Ajudamos sua empresa
+              <br />a encontrar os movimentos
               <br />
-              não ficam <em>paradas.</em>
-              <br />A gente também não.
+              que geram <em>mais negócios.</em>
             </h2>
             <div className="about-copy reveal">
               <p>
-                Somos a Temura. Um estúdio que nasce para aproximar marcas e
-                pessoas por meio de experiências digitais, estratégia e
-                conteúdo.
+                Somos a Temura. Combinamos marketing, <br />tecnologia e criatividade para transformar<br />presença em oportunidade e atenção em negócio.
               </p>
               <p>
-                Do primeiro clique à próxima conversa, cada detalhe tem um
-                propósito: fazer seu negócio se apresentar melhor e chegar mais
-                longe.
+                Para nós, um site, uma campanha ou um conteúdo só fazem sentido
+                quando ajudam sua empresa a avançar.
               </p>
             </div>
+          <p className="about-conclusao">
+            NÃO BASTA PARECER PROFISSIONAL. SUA PRESENÇA DIGITAL PRECISA GERAR NEGÓCIO.
+          </p>
           </div>
         </div>
       </section>
@@ -346,7 +363,7 @@ export default function Home() {
             <br />à <em>ação.</em>
           </h2>
           <p>
-            O encontro entre o que sua marca é<br />e o que ela pode se tornar.
+            Criamos os pontos de contato<br />que transformam a visibilidade em escolha.
           </p>
         </div>
         <div className="service-stack">
@@ -365,7 +382,13 @@ export default function Home() {
                     </span>
                   ))}
                 </h3>
-                <p>{s.text}</p>
+                <p>{s.text.split("\n").map((line, i) => (
+                    <span key={i}>
+                      {line}
+                      <br />
+                    </span>
+                  ))}</p>
+                  <span className="service-punch">{s.punchline}</span>
                 <ul>
                   {s.items.map((item) => (
                     <li key={item}>{item}</li>
@@ -391,22 +414,22 @@ export default function Home() {
                         <i />
                         <i />
                         <i />
-                        <span>UMA NOVA PERSPECTIVA</span>
+                        <span>PRESENÇA QUE GERA RESULTADO</span>
                       </div>
                       <div className="browser-content">
-                        <span className="mini-brand">sua marca®</span>
+                        <span className="mini-brand">temura®</span>
                         <strong>
                           FEITO PARA
                           <br />
-                          <em>IR ALÉM.</em>
+                          <em>GERAR NEGÓCIOS.</em>
                         </strong>
                         <div className="mini-line" />
-                        <span>DESIGN COM INTENÇÃO. ↗</span>
+                        <span>DESIGN COM ESTRATÉGIA. ↗︎</span>
                       </div>
                     </div>
                   ) : s.kind === "ads" ? (
                     <div className="ads-design">
-                      <span>O PRÓXIMO NÍVEL</span>
+                      <span>MÍDIA COM DIREÇÃO</span>
                       <div className="chart-art">
                         <div />
                         <div />
@@ -415,9 +438,9 @@ export default function Home() {
                         <div />
                       </div>
                       <strong>
-                        Mais perto.
+                        Alcance é o meio
                         <br />
-                        Mais longe.
+                        Resultado é o destino
                       </strong>
                       <ArrowUpRight size={100} strokeWidth={1} />
                     </div>
@@ -449,7 +472,7 @@ export default function Home() {
                 </div>
                 <div className="visual-caption">
                   <span>{s.word}</span>
-                  <span>ESTÚDIO TEMURA / {s.number}</span>
+                  <span>TEMURA / {s.number}</span>
                 </div>
               </div>
             </article>
@@ -462,14 +485,14 @@ export default function Home() {
         </div>
         <div className="statement-inner">
           <span>
-            MENOS DO MESMO?
+            MAIS DO MESMO?
             <br />
             NÃO É COM A GENTE.
           </span>
           <h2>
-            Criatividade
+            Boas ideias precisam
             <br />
-            com <em>direção.</em>
+            levar a algum lugar.
           </h2>
           <a href="#contato" aria-label="Conversar sobre meu projeto">
             <ArrowUpRight strokeWidth={1} />
