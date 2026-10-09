@@ -533,7 +533,6 @@ export default function Home() {
                   <h3>{title}</h3>
                   <p>{text}</p>
                 </div>
-                <Plus size={20} />
               </div>
             ))}
           </div>
@@ -562,8 +561,16 @@ export default function Home() {
                     {open === i ? <Minus size={20} /> : <Plus size={20} />}
                   </button>
                 </h3>
-                <div id={"answer-" + i} hidden={open !== i}>
-                  <p>{a}</p>
+                <div
+                  id={"answer-" + i}
+                  className={
+                    open === i ? "faq-answer is-open" : "faq-answer"
+                  }
+                  inert={open !== i}
+                >
+                  <div className="faq-answer-inner">
+                    <p>{a}</p>
+                  </div>
                 </div>
               </div>
             ))}

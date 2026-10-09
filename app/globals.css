@@ -213,6 +213,7 @@ em {
   letter-spacing: -0.073em;
   max-width: 1050px;
   position: relative;
+  text-shadow: 0 4px 24px rgb(10, 30, 39);
 }
 .hero-title > span {
   color: var(--red);
@@ -640,10 +641,10 @@ h2 {
 .statement {
   background: var(--red);
   color: var(--black);
-  min-height: 490px;
+  min-height: 360px;
   position: relative;
   overflow: hidden;
-  padding: 100px 5%;
+  padding: 70px 5%;
   display: flex;
   align-items: center;
 }
@@ -655,7 +656,8 @@ h2 {
   letter-spacing: -1vw;
   line-height: 0.9;
   opacity: 0.1;
-  top: 30px;
+  top: 50%;
+  margin-top: -0.45em;
   left: 5%;
   pointer-events: none;
 }
@@ -709,7 +711,7 @@ h2 {
   border-top: 1px solid var(--line);
   padding: 29px 0 36px;
   display: grid;
-  grid-template-columns: 35px 1fr 20px;
+  grid-template-columns: 35px 1fr;
   gap: 20px;
 }
 .step > span {
@@ -728,10 +730,6 @@ h2 {
   color: var(--muted);
   line-height: 1.7;
   font-size: 15px;
-}
-.step > svg {
-  color: var(--muted);
-  margin-top: 5px;
 }
 .faq {
   border-top: 1px solid var(--line);
@@ -768,6 +766,22 @@ h2 {
 .faq-item button svg {
   flex-shrink: 0;
   color: var(--red);
+}
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.35s ease;
+}
+.faq-answer.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.faq-answer-inner {
+  overflow: hidden;
+  min-height: 0;
 }
 .faq-item p {
   font-size: 15px;
@@ -1297,8 +1311,8 @@ textarea {
     margin: auto;
   }
   .statement {
-    min-height: 410px;
-    padding: 65px 6%;
+    min-height: 0;
+    padding: 55px 6%;
   }
   .statement-inner {
     grid-template-columns: 1fr 60px;
@@ -1315,7 +1329,6 @@ textarea {
     padding: 12px;
   }
   .statement-word {
-    top: 130px;
     font-size: 38vw;
   }
   .process-grid,
@@ -1330,7 +1343,7 @@ textarea {
   .step {
     padding: 25px 0;
     gap: 10px;
-    grid-template-columns: 30px 1fr 20px;
+    grid-template-columns: 30px 1fr;
   }
   .step h3 {
     font-size: 24px;
